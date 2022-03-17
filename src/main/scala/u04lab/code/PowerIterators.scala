@@ -1,26 +1,22 @@
 package u04lab.code
 
-import Optionals._
-import Lists._
+import Option.*
+import List.*
 
-trait PowerIterator[A] {
+trait PowerIterator[A]:
   def next(): Option[A]
   def allSoFar(): List[A]
   def reversed(): PowerIterator[A]
-}
 
-trait PowerIteratorsFactory {
-
+trait PowerIteratorsFactory:
   def incremental(start: Int, successive: Int => Int): PowerIterator[Int]
-  def fromList[A](list: List[A])
+  def fromList[A](list: List[A]): Unit
   def randomBooleans(size: Int): PowerIterator[Boolean]
-}
 
-class PowerIteratorsFactoryImpl extends PowerIteratorsFactory {
+class PowerIteratorsFactoryImpl extends PowerIteratorsFactory:
 
   override def incremental(start: Int, successive: Int => Int): PowerIterator[Int] = ???
 
   override def fromList[A](list: List[A]): Unit = ???
 
   override def randomBooleans(size: Int): PowerIterator[Boolean] = ???
-}
