@@ -9,7 +9,7 @@ enum Stream[A]:
 
 object Stream:
 
-  def empty[A](): Stream[A] = Empty()
+  def Stream[A](): Stream[A] = Empty()
 
   def cons[A](hd: => A, tl: => Stream[A]): Stream[A] =
     lazy val head = hd
