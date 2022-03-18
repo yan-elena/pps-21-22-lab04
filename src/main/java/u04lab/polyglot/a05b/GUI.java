@@ -4,10 +4,12 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 
+import u04lab.polyglot.Pair;
+
 public class GUI extends JFrame {
 
     private static final long serialVersionUID = -6218820567019985015L;
-    private final Map<JButton,Pair<Integer,Integer>> cells = new HashMap<>();
+    private final Map<JButton, Pair<Integer,Integer>> cells = new HashMap<>();
     private final JButton moveButton = new JButton(">");
     private final Logics logics;
 

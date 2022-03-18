@@ -1,4 +1,4 @@
-package u04lab.polyglot.a05b;
+package u04lab.polyglot;
 
 public class Pair<X,Y> {
 
