@@ -17,11 +17,11 @@ trait Course:
 
 case class CourseImpl(override val name: String, override val teacher: String) extends Course
 
-class StudentImpl(override val name: String, override val year: Int, private var courseList: List[Course] = Nil()) extends Student:
-  override def courses: List[String] = map(courseList)(_.name)
-  override def hasTeacher(teacher: String): Boolean = !Option.isEmpty(find(map(courseList)(_.teacher))(_ == teacher))
-  //  override def enrolling(course: Course): Unit = courseList = append(Cons(course, Nil()), courseList)
-  override def enrolling(course: Course*): Unit = course foreach (c => courseList = append(Cons(c, Nil()), courseList))
+class StudentImpl(override val name: String, override val year: Int) extends Student:
+  private var _courses: List[Course] = Nil()
+  override def courses: List[String] = map(_courses)(_.name)
+  override def hasTeacher(teacher: String): Boolean = contains(map(_courses)(_.teacher), teacher)
+  override def enrolling(courses: Course*): Unit = courses foreach (c => _courses = append(Cons(c, Nil()), _courses))
 
 object Student:
   def apply(name: String, year: Int = 2017): Student = StudentImpl(name, year)
