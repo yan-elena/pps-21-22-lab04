@@ -21,7 +21,7 @@ class StudentImpl(override val name: String, override val year: Int) extends Stu
   private var _courses: List[Course] = Nil()
   override def courses: List[String] = map(_courses)(_.name)
   override def hasTeacher(teacher: String): Boolean = contains(map(_courses)(_.teacher), teacher)
-  override def enrolling(courses: Course*): Unit = courses foreach (c => _courses = append(Cons(c, Nil()), _courses))
+  override def enrolling(courses: Course*): Unit = courses foreach (c => _courses = Cons(c, _courses))
 
 object Student:
   def apply(name: String, year: Int = 2017): Student = StudentImpl(name, year)
